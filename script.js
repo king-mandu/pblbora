@@ -8,7 +8,7 @@ const ctx = canvas.getContext('2d', { willReadFrequently: true }); // willReadFr
 const resultsDiv = document.getElementById('results');
 const loader = document.getElementById('loader');
 
-const IMAGE_SIZE = 128; // 모델 생성 시 사용했던 이미지 크기 (중요!)
+const IMAGE_SIZE = 64; // 모델 생성 시 사용했던 이미지 크기 (중요!)
 
 // ONNX Runtime Inference Session (모델) 변수
 let session;
@@ -108,4 +108,5 @@ async function analyzeFrameWithONNX() {
         anomalyScore += Math.abs(float32Data[i] - reconstructedTensor.data[i]);
     }
     return anomalyScore / float32Data.length;
+
 }
